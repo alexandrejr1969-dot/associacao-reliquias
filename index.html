@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Associação Relíquias</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090909;color:#fff;font-family:Arial,sans-serif}
+header{background:#111;padding:20px;text-align:center;border-bottom:2px solid #c9a227}
+.logo{font-size:27px;font-weight:bold;color:#d6b34a}
+.sub{color:#aaa;font-size:12px;letter-spacing:3px;margin-top:5px}
+nav{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#151515}
+nav a{color:#e4c65b;text-decoration:none;white-space:nowrap;padding:9px 12px;border:1px solid #66521b;border-radius:6px;font-size:13px}
+.hero{text-align:center;padding:45px 20px;background:linear-gradient(#171717,#090909)}
+.hero h1{font-size:32px;color:#e2bd48;margin:8px}
+.hero p{color:#bbb}
+.escudo{font-size:55px}
+.btn{display:inline-block;background:#c9a227;color:#111;padding:12px 20px;border-radius:6px;text-decoration:none;font-weight:bold;margin-top:12px}
+section{padding:25px 18px}
+h2{color:#e0bd50;border-bottom:1px solid #514319;padding-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{background:#171717;border:1px solid #514319;border-radius:10px;padding:17px;text-align:center}
+.number{font-size:28px;color:#e0bd50;font-weight:bold}
+.card p{color:#bbb;margin-bottom:0;font-size:13px}
+.player{background:#171717;border:1px solid #514319;border-radius:10px;padding:16px;text-align:center}
+.player .avatar{font-size:38px}
+.player h3{color:#e0bd50;margin:8px 0}
+.player p{color:#bbb;font-size:13px}
+footer{text-align:center;background:#111;padding:22px;color:#aaa;border-top:1px solid #514319;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">♛ RELÍQUIAS</div>
+  <div class="sub">ASSOCIAÇÃO DE FUTEBOL</div>
+</header>
+
+<nav>
+  <a href="#inicio">Início</a>
+  <a href="#estatisticas">Estatísticas</a>
+  <a href="#elenco">Elenco</a>
+  <a href="#jogos">Jogos</a>
+  <a href="#patrocinadores">Patrocinadores</a>
+</nav>
+
+<div class="hero" id="inicio">
+  <div class="escudo">🏆</div>
+  <h1>ASSOCIAÇÃO RELÍQUIAS</h1>
+  <p>Tradição, união e paixão pelo futebol.</p>
+  <a class="btn" href="#elenco">Conheça nosso elenco</a>
+</div>
+
+<section id="estatisticas">
+  <h2>Estatísticas da Associação</h2>
+  <div class="grid">
+    <div class="card"><div class="number">0</div><p>Gols</p></div>
+    <div class="card"><div class="number">0</div><p>Assistências</p></div>
+    <div class="card"><div class="number">0</div><p>Jogos</p></div>
+    <div class="card"><div class="number">0</div><p>Vitórias</p></div>
+  </div>
+</section>
+
+<section id="elenco">
+  <h2>Nosso Elenco</h2>
+  <div class="grid">
+    <div class="player">
+      <div class="avatar">⚽</div>
+      <h3>Jogador 01</h3>
+      <p>Gols: 0 | Assistências: 0</p>
+    </div>
+    <div class="player">
+      <div class="avatar">⚽</div>
+      <h3>Jogador 02</h3>
+      <p>Gols: 0 | Assistências: 0</p>
+    </div>
+  </div>
+  <p style="color:#aaa;font-size:13px">Os jogadores serão cadastrados na próxima etapa.</p>
+</section>
+
+<section id="jogos">
+  <h2>Próximos Jogos</h2>
+  <div class="card">
+    <p>Calendário de partidas</p>
+    <div class="number">EM BREVE</div>
+  </div>
+</section>
+
+<section id="patrocinadores">
+  <h2>Nossos Patrocinadores</h2>
+  <div class="card">
+    <p>Espaço reservado aos patrocinadores da Associação Relíquias.</p>
+  </div>
+</section>
+
+<footer>
+  ASSOCIAÇÃO RELÍQUIAS<br>
+  Unidos pela paixão pelo futebol.
+</footer>
+</body>
+</html>
