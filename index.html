@@ -1,28 +1,373 @@
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="Site oficial da Associação Relíquias. Futebol, jogadores, estatísticas e resultados.">
+<title>Associação Relíquias | Oficial</title>
 
-  <title>Associação Relíquias | Futebol</title>
+<style>
+:root {
+  --gold: #d4af37;
+  --gold-light: #f4d778;
+  --black: #080808;
+  --card: #151515;
+  --white: #ffffff;
+  --gray: #aaaaaa;
+}
 
-  <meta name="description" content="Site oficial da Associação Relíquias. Elenco, jogos, gols e estatísticas.">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <!-- Conexão com o arquivo CSS -->
-  <link rel="stylesheet" href="style.css">
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background: #101010;
+  border-bottom: 2px solid var(--gold);
+  padding: 18px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
+
+.brand h1 {
+  color: var(--gold);
+  font-size: 22px;
+}
+
+.brand span {
+  display: block;
+  color: var(--gray);
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.hero {
+  min-height: 390px;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(ellipse, #30250c 0%, #101010 50%, #080808 100%);
+}
+
+.hero img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.hero h2 {
+  font-size: clamp(28px, 6vw, 48px);
+  color: var(--gold);
+}
+
+.hero p {
+  color: #ddd;
+  margin: 10px 0 20px;
+}
+
+.btn {
+  background: var(--gold);
+  color: #080808;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: var(--gold-light);
+}
+
+section {
+  padding: 55px 6%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--gold);
+  font-size: 29px;
+}
+
+.section-title:after {
+  content: "";
+  display: block;
+  width: 65px;
+  height: 3px;
+  background: var(--gold);
+  margin: 10px auto;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid #55451d;
+  border-radius: 10px;
+  padding: 25px 10px;
+  text-align: center;
+}
+
+.stat-card h3 {
+  color: var(--gold);
+  font-size: 32px;
+}
+
+.stat-card p {
+  color: var(--gray);
+}
+
+.players-grid,
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+}
+
+.player-card,
+.sponsor-card,
+.match-card {
+  background: var(--card);
+  border: 1px solid #55451d;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.player-number {
+  color: var(--gold);
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.player-card h3,
+.sponsor-card h3 {
+  color: white;
+}
+
+.player-card p,
+.sponsor-card p {
+  color: var(--gray);
+}
+
+.ranking {
+  max-width: 750px;
+  margin: auto;
+}
+
+.ranking-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card);
+  border-bottom: 1px solid #403719;
+  padding: 15px;
+  gap: 10px;
+}
+
+.ranking-row strong {
+  color: var(--gold);
+}
+
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 15px;
+}
+
+.match-card h3 {
+  color: var(--gold);
+}
+
+.match-result {
+  font-size: 27px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.admin {
+  background: #111;
+  border-top: 2px solid var(--gold);
+}
+
+.admin-box {
+  max-width: 850px;
+  margin: 0 auto 25px;
+  background: var(--card);
+  border: 1px solid #55451d;
+  padding: 22px;
+  border-radius: 10px;
+}
+
+.admin-box h3 {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 13px;
+  background: #080808;
+  border: 1px solid #665322;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+input:focus, select:focus {
+  outline: 1px solid var(--gold);
+}
+
+button {
+  font-family: inherit;
+}
+
+.delete-btn {
+  background: #7d2020;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.edit-btn {
+  background: #665322;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.admin-list {
+  margin-top: 15px;
+}
+
+.admin-item {
+  padding: 12px;
+  border-bottom: 1px solid #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.empty {
+  color: var(--gray);
+  text-align: center;
+  padding: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  background: #101010;
+  border-top: 1px solid var(--gold);
+  color: var(--gray);
+}
+
+footer strong {
+  color: var(--gold);
+}
+
+@media(max-width:600px) {
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  section {
+    padding: 40px 5%;
+  }
+
+  .hero {
+    min-height: 340px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- CABEÇALHO -->
-  <header>
-    <div class="logo">♛ RELÍQUIAS</div>
-    <div class="sub">ASSOCIAÇÃO DE FUTEBOL</div>
-  </header>
+<header>
+  <div class="brand">
+    <img src="logo.PNG" alt="Logo Associação Relíquias">
+    <div>
+      <h1>RELÍQUIAS</h1>
+      <span>ASSOCIAÇÃO DE FUTEBOL</span>
+    </div>
+  </div>
 
-  <!-- MENU -->
   <nav>
     <a href="#inicio">Início</a>
     <a href="#estatisticas">Estatísticas</a>
@@ -31,129 +376,560 @@
     <a href="#jogos">Jogos</a>
     <a href="#patrocinadores">Patrocinadores</a>
   </nav>
+</header>
 
-  <!-- PÁGINA INICIAL -->
-  <main>
+<main>
 
-    <div class="hero" id="inicio">
+<section class="hero" id="inicio">
+  <img src="logo.PNG" alt="Escudo oficial Relíquias">
+  <h2>ASSOCIAÇÃO RELÍQUIAS</h2>
+  <p>Tradição, união e paixão pelo futebol.</p>
+  <a href="#elenco" class="btn">CONHEÇA NOSSO ELENCO</a>
+  <p style="margin-top:20px;color:#d4af37">FUNDADA EM 2026</p>
+</section>
 
-      <div class="escudo">🏆</div>
-
-      <h1>ASSOCIAÇÃO RELÍQUIAS</h1>
-
-      <p>Tradição, união e paixão pelo futebol.</p>
-
-      <a class="btn" href="#elenco">
-        Conheça nosso elenco
-      </a>
-
+<section id="estatisticas">
+  <h2 class="section-title">ESTATÍSTICAS DA ASSOCIAÇÃO</h2>
+  <div class="stats">
+    <div class="stat-card">
+      <h3 id="totalPlayers">0</h3>
+      <p>Jogadores</p>
     </div>
+    <div class="stat-card">
+      <h3 id="totalGoals">0</h3>
+      <p>Gols marcados</p>
+    </div>
+    <div class="stat-card">
+      <h3 id="totalAssists">0</h3>
+      <p>Assistências</p>
+    </div>
+    <div class="stat-card">
+      <h3 id="totalMatches">0</h3>
+      <p>Partidas</p>
+    </div>
+  </div>
+</section>
 
-    <!-- ESTATÍSTICAS -->
-    <section id="estatisticas">
+<section id="elenco">
+  <h2 class="section-title">NOSSO ELENCO</h2>
+  <div class="players-grid" id="playersGrid"></div>
+</section>
 
-      <h2>Estatísticas da Associação</h2>
+<section id="artilharia">
+  <h2 class="section-title">ARTILHARIA</h2>
+  <div class="ranking" id="ranking"></div>
+</section>
 
-      <div class="grid">
+<section id="jogos">
+  <h2 class="section-title">CALENDÁRIO E RESULTADOS</h2>
+  <div class="matches-grid" id="matchesGrid"></div>
+</section>
 
-        <div class="card">
-          <div class="number">0</div>
-          <p>Gols</p>
+<section id="patrocinadores">
+  <h2 class="section-title">NOSSOS PATROCINADORES</h2>
+  <div class="sponsors-grid" id="sponsorsGrid"></div>
+</section>
+
+<section class="admin" id="administracao">
+  <h2 class="section-title">GERENCIAMENTO DA ASSOCIAÇÃO</h2>
+
+  <div class="admin-box">
+    <h3>Cadastro de jogadores</h3>
+    <form id="playerForm">
+      <input type="hidden" id="playerId">
+      <input id="playerName" placeholder="Nome do jogador" required>
+      <input id="playerNumber" type="number" placeholder="Número da camisa" min="0" max="99" required>
+      <input id="playerGoals" type="number" placeholder="Quantidade de gols" min="0" value="0" required>
+      <input id="playerAssists" type="number" placeholder="Quantidade de assistências" min="0" value="0" required>
+      <button class="btn" type="submit">SALVAR JOGADOR</button>
+      <button class="delete-btn" type="button" id="cancelPlayerEdit" hidden>Cancelar edição</button>
+    </form>
+    <div class="admin-list" id="playersAdmin"></div>
+  </div>
+
+  <div class="admin-box">
+    <h3>Cadastro de partidas</h3>
+    <form id="matchForm">
+      <input type="hidden" id="matchId">
+      <input id="matchOpponent" placeholder="Nome do adversário" required>
+      <input id="matchDate" type="date" required>
+      <input id="matchLocation" placeholder="Local da partida">
+      <input id="matchOurScore" type="number" min="0" placeholder="Gols do Relíquias">
+      <input id="matchOpponentScore" type="number" min="0" placeholder="Gols do adversário">
+      <select id="matchStatus">
+        <option value="Agendado">Agendado</option>
+        <option value="Finalizado">Finalizado</option>
+      </select>
+      <button class="btn" type="submit">SALVAR PARTIDA</button>
+      <button class="delete-btn" type="button" id="cancelMatchEdit" hidden>Cancelar edição</button>
+    </form>
+    <div class="admin-list" id="matchesAdmin"></div>
+  </div>
+
+  <div class="admin-box">
+    <h3>Cadastro de patrocinadores</h3>
+    <form id="sponsorForm">
+      <input type="hidden" id="sponsorId">
+      <input id="sponsorName" placeholder="Nome do patrocinador" required>
+      <input id="sponsorLogo" type="url" placeholder="Link da imagem da logo (opcional)">
+      <input id="sponsorLink" type="url" placeholder="Link do site ou Instagram (opcional)">
+      <button class="btn" type="submit">SALVAR PATROCINADOR</button>
+      <button class="delete-btn" type="button" id="cancelSponsorEdit" hidden>Cancelar edição</button>
+    </form>
+    <div class="admin-list" id="sponsorsAdmin"></div>
+  </div>
+
+  <div class="admin-box">
+    <h3>Dados e segurança</h3>
+    <p style="color:#aaa;margin-bottom:12px">
+      Os dados ficam salvos neste navegador. Faça cópias de segurança regularmente.
+    </p>
+    <button class="btn" id="exportData">EXPORTAR BACKUP</button>
+    <button class="edit-btn" id="importButton">IMPORTAR BACKUP</button>
+    <input type="file" id="importFile" accept=".json,application/json" hidden>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p><strong>ASSOCIAÇÃO RELÍQUIAS</strong></p>
+  <p>Fundada em 2026</p>
+  <p>© 2026 Associação Relíquias. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+const STORAGE_KEY = "reliquias_site_v1";
+
+function loadData() {
+  try {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (data && Array.isArray(data.players) &&
+        Array.isArray(data.matches) && Array.isArray(data.sponsors)) {
+      return data;
+    }
+  } catch (error) {}
+  return { players: [], matches: [], sponsors: [] };
+}
+
+let data = loadData();
+
+function saveData() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    render();
+  } catch (error) {
+    alert("Não foi possível salvar os dados neste navegador.");
+  }
+}
+
+function makeId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2);
+}
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function safeURL(value) {
+  try {
+    const url = new URL(value);
+    return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+  } catch {
+    return "";
+  }
+}
+
+function formatDate(value) {
+  if (!value) return "Data a definir";
+  const parts = value.split("-");
+  if (parts.length !== 3) return escapeHTML(value);
+  return `${parts[2]}/${parts[1]}/${parts[0]}`;
+}
+
+function render() {
+  renderStats();
+  renderPlayers();
+  renderRanking();
+  renderMatches();
+  renderSponsors();
+  renderAdmin();
+}
+
+function renderStats() {
+  document.getElementById("totalPlayers").textContent = data.players.length;
+  document.getElementById("totalGoals").textContent =
+    data.players.reduce((sum, p) => sum + Number(p.goals || 0), 0);
+  document.getElementById("totalAssists").textContent =
+    data.players.reduce((sum, p) => sum + Number(p.assists || 0), 0);
+  document.getElementById("totalMatches").textContent = data.matches.length;
+}
+
+function renderPlayers() {
+  const grid = document.getElementById("playersGrid");
+
+  if (!data.players.length) {
+    grid.innerHTML = '<p class="empty">Elenco em construção. Em breve teremos nossos jogadores aqui!</p>';
+    return;
+  }
+
+  grid.innerHTML = data.players
+    .slice()
+    .sort((a,b) => Number(a.number) - Number(b.number))
+    .map(p => `
+      <article class="player-card">
+        <div class="player-number">${escapeHTML(p.number)}</div>
+        <h3>${escapeHTML(p.name)}</h3>
+        <p>Gols: ${Number(p.goals)}</p>
+        <p>Assistências: ${Number(p.assists)}</p>
+      </article>
+    `).join("");
+}
+
+function renderRanking() {
+  const ranking = document.getElementById("ranking");
+
+  const sorted = data.players.slice().sort((a,b) =>
+    Number(b.goals) - Number(a.goals) ||
+    a.name.localeCompare(b.name, "pt-BR")
+  );
+
+  if (!sorted.length) {
+    ranking.innerHTML = '<p class="empty">A artilharia aparecerá aqui após o cadastro dos jogadores.</p>';
+    return;
+  }
+
+  ranking.innerHTML = sorted.map((p,i) => `
+    <div class="ranking-row">
+      <span>${i + 1}º - ${escapeHTML(p.name)} (#${escapeHTML(p.number)})</span>
+      <strong>${Number(p.goals)} gols</strong>
+    </div>
+  `).join("");
+}
+
+function renderMatches() {
+  const grid = document.getElementById("matchesGrid");
+
+  const sorted = data.matches.slice().sort((a,b) =>
+    a.date.localeCompare(b.date)
+  );
+
+  if (!sorted.length) {
+    grid.innerHTML = '<p class="empty">Nenhuma partida cadastrada.</p>';
+    return;
+  }
+
+  grid.innerHTML = sorted.map(m => `
+    <article class="match-card">
+      <p>${formatDate(m.date)}</p>
+      <h3>RELÍQUIAS x ${escapeHTML(m.opponent)}</h3>
+      ${m.status === "Finalizado"
+        ? `<div class="match-result">${Number(m.ourScore)} x ${Number(m.opponentScore)}</div>`
+        : `<p class="match-result">VS</p>`
+      }
+      <p>${escapeHTML(m.location || "Local a definir")}</p>
+      <p style="color:#d4af37">${escapeHTML(m.status)}</p>
+    </article>
+  `).join("");
+}
+
+function renderSponsors() {
+  const grid = document.getElementById("sponsorsGrid");
+
+  if (!data.sponsors.length) {
+    grid.innerHTML = '<p class="empty">Em breve, nossos patrocinadores estarão aqui.</p>';
+    return;
+  }
+
+  grid.innerHTML = data.sponsors.map(s => {
+    const logo = safeURL(s.logo);
+    const link = safeURL(s.link);
+
+    const content = `
+      ${logo ? `<img src="${escapeHTML(logo)}" alt="" style="width:100%;max-width:130px;height:85px;object-fit:contain;margin-bottom:10px">` : ""}
+      <h3>${escapeHTML(s.name)}</h3>
+    `;
+
+    return `
+      <article class="sponsor-card">
+        ${link
+          ? `<a href="${escapeHTML(link)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">${content}</a>`
+          : content}
+      </article>
+    `;
+  }).join("");
+}
+
+function renderAdmin() {
+  document.getElementById("playersAdmin").innerHTML =
+    data.players.length ? data.players.map(p => `
+      <div class="admin-item">
+        <span>${escapeHTML(p.name)} - Camisa ${escapeHTML(p.number)}</span>
+        <div>
+          <button class="edit-btn" data-edit-player="${escapeHTML(p.id)}">Editar</button>
+          <button class="delete-btn" data-delete-player="${escapeHTML(p.id)}">Excluir</button>
         </div>
-
-        <div class="card">
-          <div class="number">0</div>
-          <p>Assistências</p>
-        </div>
-
-        <div class="card">
-          <div class="number">0</div>
-          <p>Jogos</p>
-        </div>
-
-        <div class="card">
-          <div class="number">0</div>
-          <p>Vitórias</p>
-        </div>
-
       </div>
-    </section>
+    `).join("") : '<p class="empty">Nenhum jogador cadastrado.</p>';
 
-    <!-- ELENCO -->
-    <section id="elenco">
-
-      <h2>Nosso Elenco</h2>
-
-      <div class="grid">
-
-        <div class="player">
-          <div class="avatar">⚽</div>
-          <h3>Jogador 01</h3>
-          <p>Gols: 0 | Assistências: 0</p>
+  document.getElementById("matchesAdmin").innerHTML =
+    data.matches.length ? data.matches.map(m => `
+      <div class="admin-item">
+        <span>${escapeHTML(m.opponent)} - ${formatDate(m.date)}</span>
+        <div>
+          <button class="edit-btn" data-edit-match="${escapeHTML(m.id)}">Editar</button>
+          <button class="delete-btn" data-delete-match="${escapeHTML(m.id)}">Excluir</button>
         </div>
+      </div>
+    `).join("") : '<p class="empty">Nenhuma partida cadastrada.</p>';
 
-        <div class="player">
-          <div class="avatar">⚽</div>
-          <h3>Jogador 02</h3>
-          <p>Gols: 0 | Assistências: 0</p>
+  document.getElementById("sponsorsAdmin").innerHTML =
+    data.sponsors.length ? data.sponsors.map(s => `
+      <div class="admin-item">
+        <span>${escapeHTML(s.name)}</span>
+        <div>
+          <button class="edit-btn" data-edit-sponsor="${escapeHTML(s.id)}">Editar</button>
+          <button class="delete-btn" data-delete-sponsor="${escapeHTML(s.id)}">Excluir</button>
         </div>
-
       </div>
+    `).join("") : '<p class="empty">Nenhum patrocinador cadastrado.</p>';
+}
 
-      <p>Os jogadores serão cadastrados em breve.</p>
+document.getElementById("playerForm").addEventListener("submit", event => {
+  event.preventDefault();
 
-    </section>
+  const id = document.getElementById("playerId").value;
 
-    <!-- ARTILHARIA -->
-    <section id="artilharia">
+  const player = {
+    id: id || makeId(),
+    name: document.getElementById("playerName").value.trim(),
+    number: Number(document.getElementById("playerNumber").value),
+    goals: Number(document.getElementById("playerGoals").value),
+    assists: Number(document.getElementById("playerAssists").value)
+  };
 
-      <h2>Artilharia</h2>
+  if (!player.name || ![player.number,player.goals,player.assists].every(n => Number.isSafeInteger(n) && n >= 0)) {
+    alert("Confira os dados do jogador.");
+    return;
+  }
 
-      <div class="card">
-        <p>Ranking de goleadores da Associação</p>
-        <div class="number">EM BREVE</div>
-      </div>
+  if (data.players.some(p => p.number === player.number && p.id !== id)) {
+    alert("Já existe um jogador com esse número de camisa.");
+    return;
+  }
 
-    </section>
+  if (id) {
+    data.players = data.players.map(p => p.id === id ? player : p);
+  } else {
+    data.players.push(player);
+  }
 
-    <!-- JOGOS -->
-    <section id="jogos">
+  event.target.reset();
+  document.getElementById("playerId").value = "";
+  document.getElementById("cancelPlayerEdit").hidden = true;
+  saveData();
+});
 
-      <h2>Calendário e Resultados</h2>
+document.getElementById("matchForm").addEventListener("submit", event => {
+  event.preventDefault();
 
-      <div class="card">
-        <p>Próximas partidas e resultados dos jogos.</p>
-        <div class="number">EM BREVE</div>
-      </div>
+  const id = document.getElementById("matchId").value;
+  const status = document.getElementById("matchStatus").value;
+  const ourScore = document.getElementById("matchOurScore").value;
+  const opponentScore = document.getElementById("matchOpponentScore").value;
 
-    </section>
+  if (status === "Finalizado" &&
+      (ourScore === "" || opponentScore === "" ||
+       !Number.isSafeInteger(Number(ourScore)) ||
+       !Number.isSafeInteger(Number(opponentScore)) ||
+       Number(ourScore) < 0 || Number(opponentScore) < 0)) {
+    alert("Informe os dois placares para finalizar a partida.");
+    return;
+  }
 
-    <!-- PATROCINADORES -->
-    <section id="patrocinadores">
+  const match = {
+    id: id || makeId(),
+    opponent: document.getElementById("matchOpponent").value.trim(),
+    date: document.getElementById("matchDate").value,
+    location: document.getElementById("matchLocation").value.trim(),
+    ourScore: status === "Finalizado" ? Number(ourScore) : null,
+    opponentScore: status === "Finalizado" ? Number(opponentScore) : null,
+    status
+  };
 
-      <h2>Nossos Patrocinadores</h2>
+  if (id) {
+    data.matches = data.matches.map(m => m.id === id ? match : m);
+  } else {
+    data.matches.push(match);
+  }
 
-      <div class="card">
-        <p>
-          Espaço reservado aos patrocinadores
-          da Associação Relíquias.
-        </p>
-      </div>
+  event.target.reset();
+  document.getElementById("matchId").value = "";
+  document.getElementById("cancelMatchEdit").hidden = true;
+  saveData();
+});
 
-    </section>
+document.getElementById("sponsorForm").addEventListener("submit", event => {
+  event.preventDefault();
 
-  </main>
+  const id = document.getElementById("sponsorId").value;
+  const logoInput = document.getElementById("sponsorLogo").value.trim();
+  const linkInput = document.getElementById("sponsorLink").value.trim();
 
-  <!-- RODAPÉ -->
-  <footer>
+  const sponsor = {
+    id: id || makeId(),
+    name: document.getElementById("sponsorName").value.trim(),
+    logo: logoInput ? safeURL(logoInput) : "",
+    link: linkInput ? safeURL(linkInput) : ""
+  };
 
-    <strong>ASSOCIAÇÃO RELÍQUIAS</strong>
+  if ((logoInput && !sponsor.logo) || (linkInput && !sponsor.link)) {
+    alert("Use links válidos começando com http:// ou https://.");
+    return;
+  }
 
-    <p>Unidos pela paixão pelo futebol.</p>
+  if (id) {
+    data.sponsors = data.sponsors.map(s => s.id === id ? sponsor : s);
+  } else {
+    data.sponsors.push(sponsor);
+  }
 
-    <p>Site oficial da associação.</p>
+  event.target.reset();
+  document.getElementById("sponsorId").value = "";
+  document.getElementById("cancelSponsorEdit").hidden = true;
+  saveData();
+});
 
-  </footer>
+document.addEventListener("click", event => {
+  const target = event.target;
+
+  if (target.dataset.deletePlayer) {
+    if (confirm("Deseja excluir este jogador?")) {
+      data.players = data.players.filter(p => p.id !== target.dataset.deletePlayer);
+      saveData();
+    }
+  }
+
+  if (target.dataset.deleteMatch) {
+    if (confirm("Deseja excluir esta partida?")) {
+      data.matches = data.matches.filter(m => m.id !== target.dataset.deleteMatch);
+      saveData();
+    }
+  }
+
+  if (target.dataset.deleteSponsor) {
+    if (confirm("Deseja excluir este patrocinador?")) {
+      data.sponsors = data.sponsors.filter(s => s.id !== target.dataset.deleteSponsor);
+      saveData();
+    }
+  }
+
+  if (target.dataset.editPlayer) {
+    const p = data.players.find(p => p.id === target.dataset.editPlayer);
+    if (!p) return;
+    document.getElementById("playerId").value = p.id;
+    document.getElementById("playerName").value = p.name;
+    document.getElementById("playerNumber").value = p.number;
+    document.getElementById("playerGoals").value = p.goals;
+    document.getElementById("playerAssists").value = p.assists;
+    document.getElementById("cancelPlayerEdit").hidden = false;
+    document.getElementById("playerForm").scrollIntoView({behavior:"smooth"});
+  }
+
+  if (target.dataset.editMatch) {
+    const m = data.matches.find(m => m.id === target.dataset.editMatch);
+    if (!m) return;
+    document.getElementById("matchId").value = m.id;
+    document.getElementById("matchOpponent").value = m.opponent;
+    document.getElementById("matchDate").value = m.date;
+    document.getElementById("matchLocation").value = m.location || "";
+    document.getElementById("matchOurScore").value = m.ourScore ?? "";
+    document.getElementById("matchOpponentScore").value = m.opponentScore ?? "";
+    document.getElementById("matchStatus").value = m.status;
+    document.getElementById("cancelMatchEdit").hidden = false;
+    document.getElementById("matchForm").scrollIntoView({behavior:"smooth"});
+  }
+
+  if (target.dataset.editSponsor) {
+    const s = data.sponsors.find(s => s.id === target.dataset.editSponsor);
+    if (!s) return;
+    document.getElementById("sponsorId").value = s.id;
+    document.getElementById("sponsorName").value = s.name;
+    document.getElementById("sponsorLogo").value = s.logo || "";
+    document.getElementById("sponsorLink").value = s.link || "";
+    document.getElementById("cancelSponsorEdit").hidden = false;
+    document.getElementById("sponsorForm").scrollIntoView({behavior:"smooth"});
+  }
+});
+
+document.getElementById("cancelPlayerEdit").addEventListener("click", () => {
+  document.getElementById("playerForm").reset();
+  document.getElementById("playerId").value = "";
+  document.getElementById("cancelPlayerEdit").hidden = true;
+});
+
+document.getElementById("cancelMatchEdit").addEventListener("click", () => {
+  document.getElementById("matchForm").reset();
+  document.getElementById("matchId").value = "";
+  document.getElementById("cancelMatchEdit").hidden = true;
+});
+
+document.getElementById("cancelSponsorEdit").addEventListener("click", () => {
+  document.getElementById("sponsorForm").reset();
+  document.getElementById("sponsorId").value = "";
+  document.getElementById("cancelSponsorEdit").hidden = true;
+});
+
+document.getElementById("exportData").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(data, null, 2)], {
+    type: "application/json"
+  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "backup-associacao-reliquias.json";
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById("importButton").addEventListener("click", () => {
+  document.getElementById("importFile").click();
+});
+
+document.getElementById("importFile").addEventListener("change", async event => {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  try {
+    const imported = JSON.parse(await file.text());
+
+    if (!imported ||
+        !Array.isArray(imported.players) ||
+        !Array.isArray(imported.matches) ||
+        !Array.isArray(imported.sponsors)) {
+      throw new Error("Formato inválido");
+    }
+
+    if (!confirm("Importar este backup substituirá os dados atuais. Deseja continuar?")) return;
+
+    data = imported;
+    saveData();
+    alert("Backup importado com sucesso!");
+  } catch {
+    alert("Não foi possível importar esse arquivo.");
+  } finally {
+    event.target.value = "";
+  }
+});
+
+render();
+</script>
 
 </body>
 </html>
