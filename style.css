@@ -1,8 +1,17 @@
 
+/* =====================================
+   ASSOCIACAO RELIQUIAS
+   IDENTIDADE VISUAL OFICIAL
+===================================== */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -12,32 +21,49 @@ body {
   line-height: 1.6;
 }
 
+/* CABECALHO */
+
 header {
-  background: #080808;
-  padding: 20px;
+  background: linear-gradient(135deg, #080808, #202020);
+  padding: 25px 15px;
   text-align: center;
   border-bottom: 3px solid #d4af37;
 }
 
-header h1,
-h1, h2, h3 {
+.logo {
+  font-size: 30px;
+  font-weight: bold;
   color: #d4af37;
+  letter-spacing: 2px;
 }
+
+.sub {
+  color: #bbbbbb;
+  font-size: 12px;
+  letter-spacing: 4px;
+  margin-top: 5px;
+}
+
+/* MENU */
 
 nav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   padding: 15px;
   background: #1c1c1c;
+  border-bottom: 1px solid #383838;
 }
 
 nav a {
   color: #ffffff;
   text-decoration: none;
-  padding: 10px 14px;
-  border-radius: 6px;
+  padding: 9px 13px;
+  border: 1px solid #514319;
+  border-radius: 7px;
+  font-size: 13px;
+  transition: 0.3s;
 }
 
 nav a:hover {
@@ -45,59 +71,229 @@ nav a:hover {
   color: #111111;
 }
 
+/* CONTEUDO PRINCIPAL */
+
 main {
   width: 92%;
   max-width: 1100px;
   margin: 25px auto;
 }
 
-section, .card {
+/* PAGINA INICIAL */
+
+.hero {
+  text-align: center;
+  padding: 55px 20px;
+  background: linear-gradient(145deg, #242424, #090909);
+  border: 1px solid #514319;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+.escudo {
+  font-size: 65px;
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  color: #d4af37;
+  margin: 10px 0;
+}
+
+.hero p {
+  color: #cccccc;
+  margin-bottom: 10px;
+}
+
+/* BOTOES */
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #f0cf63, #b58b20);
+  color: #111111;
+  padding: 12px 22px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ffe58a;
+  transform: translateY(-2px);
+}
+
+/* SECOES */
+
+section {
   background: #1c1c1c;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 22px;
+  margin-bottom: 22px;
   border: 1px solid #383838;
   border-radius: 12px;
 }
 
-button {
-  background: #d4af37;
-  color: #111111;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
+h2 {
+  color: #d4af37;
+  border-bottom: 2px solid #514319;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 23px;
+}
+
+/* GRADE DE CARDS */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* CARTOES */
+
+.card {
+  background: #111111;
+  border: 1px solid #514319;
+  border-radius: 10px;
+  padding: 18px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  border-color: #d4af37;
+}
+
+/* NUMEROS */
+
+.number {
+  font-size: 30px;
+  color: #e0bd50;
   font-weight: bold;
-  cursor: pointer;
 }
 
-button:hover {
-  background: #f0cf63;
+.card p {
+  color: #bbbbbb;
+  font-size: 14px;
 }
 
-input, select, textarea {
-  width: 100%;
-  padding: 12px;
+/* JOGADORES */
+
+.player {
+  background: #111111;
+  border: 1px solid #514319;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.player:hover {
+  border-color: #d4af37;
+  transform: translateY(-3px);
+}
+
+.player .avatar {
+  font-size: 45px;
+  margin-bottom: 8px;
+}
+
+.player h3 {
+  color: #d4af37;
   margin: 8px 0;
-  border-radius: 6px;
-  border: 1px solid #777;
-  background: #292929;
-  color: white;
 }
+
+.player p {
+  color: #bbbbbb;
+  font-size: 13px;
+}
+
+/* TEXTO DAS SECOES */
+
+section > p {
+  color: #bbbbbb;
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+/* RODAPE */
 
 footer {
   text-align: center;
-  padding: 25px;
+  padding: 28px 15px;
   background: #080808;
-  border-top: 2px solid #d4af37;
+  border-top: 3px solid #d4af37;
   color: #bbbbbb;
+  font-size: 13px;
 }
 
+footer strong {
+  color: #d4af37;
+  font-size: 17px;
+}
+
+/* CELULARES */
+
 @media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    text-align: center;
-  }
 
   main {
     width: 94%;
+    margin: 15px auto;
   }
+
+  nav {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  nav a {
+    white-space: nowrap;
+  }
+
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  section {
+    padding: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .card,
+  .player {
+    padding: 13px;
+  }
+
+  .number {
+    font-size: 25px;
+  }
+}
+
+/* TELAS MUITO PEQUENAS */
+
+@media (max-width: 350px) {
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
 }
