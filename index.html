@@ -1,100 +1,454 @@
-<section id="patrocinadores" class="patrocinadores">
-  <div class="patrocinadores-container">
 
-    <h2>NOSSOS PATROCINADORES</h2>
-    <p>Empresas que fortalecem a Associação Relíquias.</p>
-
-    <div class="patrocinadores-grid">
-
-      <!-- PEÇAS & CIA -->
-      <div class="patrocinador-card">
-        <img src="pecas-e-cia.jpeg.PNG" alt="Peças & Cia">
-        <h3>PEÇAS & CIA</h3>
-        <span>Patrocinador Oficial</span>
-      </div>
-
-      <!-- LF BARBEARIA -->
-      <div class="patrocinador-card">
-        <img src="logo.PNG" alt="LF Barbearia">
-        <h3>LF BARBEARIA</h3>
-        <span>Patrocinador Oficial</span>
-      </div>
-
-      <!-- REVALLE -->
-      <div class="patrocinador-card">
-        <img src="revalle.PNG" alt="Revalle">
-        <h3>REVALLE</h3>
-        <span>Patrocinador Oficial</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>Associação Relíquias | Oficial</title>
 <style>
-.patrocinadores {
-  background: #080808;
-  padding: 70px 20px;
-  text-align: center;
-  color: white;
-  border-top: 3px solid #d4af37;
-}
+:root{--bg:#080808;--panel:#121212;--panel2:#191919;--gold:#d4af37;--gold2:#f0d777;--white:#f5f5f5;--muted:#aaa;--line:#292929;--green:#55c987;--red:#ff6262}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.container{width:min(1120px,92%);margin:auto}
+.gold{color:var(--gold)}
+.section{padding:72px 0}
+.section-title{text-align:center;margin:0 0 34px}
+.section-title .eyebrow{color:var(--gold);letter-spacing:3px;font-size:11px;font-weight:800}
+.section-title h2{font-size:clamp(26px,5vw,42px);margin:10px 0;font-weight:900}
+.section-title p{color:var(--muted);max-width:620px;margin:0 auto;line-height:1.6;font-size:14px}
 
-.patrocinadores-container {
-  max-width: 1100px;
-  margin: auto;
-}
+header{position:sticky;top:0;z-index:20;background:rgba(8,8,8,.94);backdrop-filter:blur(12px);border-bottom:1px solid #252525}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:1px}
+.brand img{width:52px;height:52px;object-fit:contain}
+.brand small{display:block;color:var(--gold);font-size:10px;letter-spacing:3px;margin-top:3px}
+.navlinks{display:flex;gap:20px;align-items:center;font-size:13px;color:#ccc}
+.navlinks a:hover{color:var(--gold)}
+.navbtn{display:none;background:none;color:white;border:1px solid var(--gold);border-radius:8px;padding:8px 12px}
 
-.patrocinadores h2 {
-  color: #d4af37;
-  font-size: 32px;
-  margin-bottom: 10px;
-}
+.hero{min-height:540px;display:flex;align-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 70% 40%,#29220d 0%,#101010 32%,#080808 72%)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#080808 0%,rgba(8,8,8,.78) 50%,rgba(8,8,8,.15));pointer-events:none}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:30px;padding:65px 0}
+.hero-label{color:var(--gold);letter-spacing:4px;font-size:12px;font-weight:bold}
+.hero h1{font-size:clamp(38px,7vw,76px);line-height:.98;margin:18px 0;font-weight:950;letter-spacing:-2px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#c1c1c1;line-height:1.7;max-width:540px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{border:1px solid var(--gold);border-radius:8px;padding:12px 18px;font-weight:800;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn-primary{background:var(--gold);color:#080808}
+.btn-outline{background:transparent;color:var(--gold)}
+.hero-logo{display:flex;justify-content:center;align-items:center}
+.hero-logo img{width:min(340px,90%);max-height:360px;object-fit:contain;filter:drop-shadow(0 0 22px rgba(212,175,55,.14))}
 
-.patrocinadores p {
-  color: #ccc;
-  margin-bottom: 40px;
-}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-28px;position:relative;z-index:2}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;text-align:center}
+.stat strong{display:block;color:var(--gold);font-size:32px;font-weight:900}
+.stat span{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
 
-.patrocinadores-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:0 0 8px}
+.card p{color:var(--muted);font-size:13px;line-height:1.6}
+.feature-icon{font-size:24px;color:var(--gold);margin-bottom:12px}
+.alt{background:#0d0d0d}
 
-.patrocinador-card {
-  background: #151515;
-  border: 1px solid #d4af37;
-  border-radius: 15px;
-  padding: 25px 15px;
-  transition: transform 0.3s;
-}
+.player-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.player-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:17px;display:flex;align-items:center;gap:14px}
+.player-number{width:48px;height:48px;display:grid;place-items:center;background:#24200f;border:1px solid var(--gold);border-radius:10px;color:var(--gold);font-weight:900;font-size:20px;flex-shrink:0}
+.player-card h3{margin:0 0 5px;font-size:15px}
+.player-card p{margin:0;color:var(--muted);font-size:12px}
+.player-meta{margin-left:auto;text-align:right;color:var(--gold);font-size:12px;white-space:nowrap}
+.empty{color:var(--muted);border:1px dashed #383838;border-radius:12px;padding:25px;text-align:center;grid-column:1/-1}
 
-.patrocinador-card:hover {
-  transform: translateY(-5px);
-}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:500px}
+th,td{padding:13px 15px;border-bottom:1px solid var(--line);text-align:left;font-size:13px}
+th{color:var(--gold);font-size:11px;letter-spacing:1px;text-transform:uppercase}
+tbody tr:last-child td{border-bottom:0}
+.rank{color:var(--gold);font-weight:900}
 
-.patrocinador-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-  background: white;
-  border-radius: 8px;
-}
+.match-list{display:grid;gap:12px}
+.match{display:flex;justify-content:space-between;align-items:center;gap:15px;background:var(--panel);border:1px solid var(--line);padding:17px;border-radius:12px}
+.match-info{color:var(--muted);font-size:12px;line-height:1.7}
+.match-score{font-weight:900;color:var(--gold);font-size:22px;white-space:nowrap}
+.status{font-size:10px;text-transform:uppercase;letter-spacing:1px;border:1px solid #444;border-radius:30px;padding:5px 8px;color:#bbb}
 
-.patrocinador-card h3 {
-  color: #d4af37;
-  margin-top: 20px;
-}
+/* PATROCINADORES EM TRIANGULO */
+.sponsors-section{background:#080808}
+.sponsors-triangle{max-width:650px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px}
+.sponsor-card{background:#fff;border:2px solid var(--gold);border-radius:14px;padding:18px;width:100%;min-height:150px;display:flex;align-items:center;justify-content:center;transition:.25s;box-shadow:0 0 18px rgba(212,175,55,.08)}
+.sponsor-card:hover{transform:translateY(-4px);box-shadow:0 0 22px rgba(212,175,55,.2)}
+.sponsor-card img{display:block;width:100%;height:125px;object-fit:contain}
+.sponsor-top{width:60%;min-height:180px}
+.sponsor-top img{height:145px}
+.sponsors-bottom{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 
-.patrocinador-card span {
-  color: #ccc;
-  font-size: 14px;
-}
+/* ADMINISTRACAO */
+.admin{border-top:1px solid var(--gold);background:#101010}
+.admin-box{background:#151515;border:1px solid #303030;border-radius:14px;padding:22px;margin:15px 0}
+.admin-box h3{margin:0 0 15px;color:var(--gold)}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.form-grid input,.form-grid select{width:100%;padding:12px;background:#080808;border:1px solid #333;border-radius:8px;color:#fff}
+.form-grid input:focus,.form-grid select:focus{outline:1px solid var(--gold)}
+.form-grid .full{grid-column:1/-1}
+.form-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.small-btn{padding:8px 11px;border-radius:7px;border:1px solid #555;background:#202020;color:white;font-size:12px}
+.small-btn.gold-btn{background:var(--gold);color:#080808;border-color:var(--gold);font-weight:bold}
+.small-btn.delete{border-color:#8a3333;color:#ff8585}
+.admin-list{display:grid;gap:8px;margin-top:12px}
+.admin-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;background:#0b0b0b;border:1px solid #292929;border-radius:8px;font-size:13px}
+.admin-item .actions{display:flex;gap:6px;flex-wrap:wrap}
+.notice{font-size:12px;color:var(--muted);line-height:1.5}
+.hidden{display:none!important}
 
-@media (max-width: 700px) {
-  .patrocinadores-grid {
-    grid-template-columns: 1fr;
-  }
+footer{border-top:1px solid #222;padding:28px 0;color:#888;font-size:12px;text-align:center}
+footer strong{color:var(--gold)}
+
+@media(max-width:800px){
+.hero-inner{grid-template-columns:1fr;text-align:center;padding:55px 0}
+.hero p{margin:0 auto}
+.hero-logo img{width:220px}
+.hero-actions{justify-content:center}
+.stats{grid-template-columns:repeat(2,1fr)}
+.cards{grid-template-columns:1fr}
+.player-grid{grid-template-columns:1fr 1fr}
+.navlinks{display:none;position:absolute;top:76px;left:0;right:0;background:#0b0b0b;border-bottom:1px solid #333;padding:18px;flex-direction:column;gap:16px}
+.navlinks.open{display:flex}
+.navbtn{display:block}
+}
+@media(max-width:520px){
+.section{padding:52px 0}
+.player-grid{grid-template-columns:1fr}
+.sponsor-top{width:78%;min-height:145px}
+.sponsors-bottom{gap:12px}
+.sponsor-card{min-height:112px;padding:10px;border-radius:10px}
+.sponsor-card img{height:90px}
+.sponsor-top img{height:115px}
+.form-grid{grid-template-columns:1fr}
+.form-grid .full{grid-column:auto}
+.match{flex-wrap:wrap}
+.match-score{font-size:18px}
 }
 </style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<a class="brand" href="#inicio">
+<img src="logo.PNG" alt="Logo Associação Relíquias">
+<span>ASSOCIAÇÃO<small>RELÍQUIAS • DESDE 2026</small></span>
+</a>
+<button class="navbtn" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
+<nav class="navlinks" id="navlinks">
+<a href="#sobre">Sobre</a>
+<a href="#elenco">Elenco</a>
+<a href="#ranking">Artilharia</a>
+<a href="#jogos">Jogos</a>
+<a href="#patrocinadores">Patrocinadores</a>
+<a href="#administracao">Administração</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+<div class="container hero-inner">
+<div>
+<div class="hero-label">FUTEBOL • UNIÃO • RESPEITO</div>
+<h1>UMA HISTÓRIA.<br><span>UMA ASSOCIAÇÃO.</span></h1>
+<p>Mais que futebol, somos união, compromisso e amizade. Bem-vindo à Associação Relíquias, onde cada jogo fortalece nossa história.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#elenco">CONHEÇA O ELENCO</a>
+<a class="btn btn-outline" href="#jogos">VER JOGOS</a>
+</div>
+</div>
+<div class="hero-logo">
+<img src="logo.PNG" alt="Escudo oficial Relíquias">
+</div>
+</div>
+</section>
+
+<div class="container">
+<div class="stats">
+<div class="stat"><strong id="statPlayers">0</strong><span>Jogadores</span></div>
+<div class="stat"><strong id="statGoals">0</strong><span>Gols</span></div>
+<div class="stat"><strong id="statAssists">0</strong><span>Assistências</span></div>
+<div class="stat"><strong id="statMatches">0</strong><span>Partidas</span></div>
+</div>
+</div>
+
+<section class="section" id="sobre">
+<div class="container">
+<div class="section-title">
+<div class="eyebrow">NOSSA IDENTIDADE</div>
+<h2>MAIS QUE UM <span class="gold">TIME</span></h2>
+<p>A Associação Relíquias nasceu para unir pessoas através do futebol, valorizando amizade, respeito, organização e espírito esportivo.</p>
+</div>
+<div class="cards">
+<article class="card"><div class="feature-icon">⚽</div><h3>Paixão pelo futebol</h3><p>O esporte como ponto de encontro, diversão e competição saudável.</p></article>
+<article class="card"><div class="feature-icon">🤝</div><h3>União e respeito</h3><p>Fortalecemos a parceria dentro e fora de campo, respeitando todos.</p></article>
+<article class="card"><div class="feature-icon">🏆</div><h3>Compromisso</h3><p>Organização, participação e dedicação para construir nossa história.</p></article>
+</div>
+</div>
+</section>
+
+<section class="section alt" id="elenco">
+<div class="container">
+<div class="section-title">
+<div class="eyebrow">NOSSO GRUPO</div>
+<h2>ELENCO <span class="gold">RELÍQUIAS</span></h2>
+<p>Confira os jogadores cadastrados na associação.</p>
+</div>
+<div id="playerGrid" class="player-grid"></div>
+</div>
+</section>
+
+<section class="section" id="ranking">
+<div class="container">
+<div class="section-title">
+<div class="eyebrow">DESEMPENHO</div>
+<h2>RANKING DE <span class="gold">ARTILHARIA</span></h2>
+<p>Gols e assistências registrados nas partidas.</p>
+</div>
+<div class="table-wrap">
+<table>
+<thead><tr><th>#</th><th>Jogador</th><th>Gols</th><th>Assistências</th><th>G+A</th></tr></thead>
+<tbody id="rankingBody"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section class="section alt" id="jogos">
+<div class="container">
+<div class="section-title">
+<div class="eyebrow">CALENDÁRIO E RESULTADOS</div>
+<h2>JOGOS <span class="gold">DA ASSOCIAÇÃO</span></h2>
+<p>Agenda, confrontos e resultados registrados.</p>
+</div>
+<div class="match-list" id="matchList"></div>
+</div>
+</section>
+
+<!-- PATROCINADORES: REVALLE NO TOPO, OUTROS DOIS ABAIXO -->
+<section class="section sponsors-section" id="patrocinadores">
+<div class="container">
+<div class="section-title">
+<div class="eyebrow">PARCEIROS OFICIAIS</div>
+<h2>NOSSOS <span class="gold">PATROCINADORES</span></h2>
+<p>Empresas que fortalecem o esporte e caminham com a Associação Relíquias.</p>
+</div>
+<div class="sponsors-triangle">
+<div class="sponsor-card sponsor-top"><img src="revalle.PNG" alt="Revalle"></div>
+<div class="sponsors-bottom">
+<div class="sponsor-card"><img src="pecas-e-cia.jpeg.PNG" alt="Peças e Cia."></div>
+<div class="sponsor-card"><img src="LF-barbearia.jpg" alt="LF Barbearia"></div>
+</div>
+</div>
+</section>
+
+<section class="section admin" id="administracao">
+<div class="container">
+<div class="section-title">
+<div class="eyebrow">CONTROLE DO SITE</div>
+<h2>ÁREA <span class="gold">ADMINISTRATIVA</span></h2>
+<p>Cadastre atletas e jogos. As alterações ficam salvas neste navegador.</p>
+</div>
+
+<div class="admin-box">
+<h3>Cadastro de jogador</h3>
+<form id="playerForm">
+<input type="hidden" id="playerEditId">
+<div class="form-grid">
+<input id="playerName" placeholder="Nome do jogador" required>
+<input id="playerNumber" type="number" min="0" placeholder="Número da camisa">
+<input id="playerPosition" placeholder="Posição (ex.: atacante)">
+<input id="playerGoals" type="number" min="0" value="0" placeholder="Gols">
+<input id="playerAssists" type="number" min="0" value="0" placeholder="Assistências">
+</div>
+<div class="form-actions">
+<button class="small-btn gold-btn" type="submit">Salvar jogador</button>
+<button class="small-btn" type="button" onclick="clearPlayerForm()">Limpar</button>
+</div>
+</form>
+<div class="admin-list" id="adminPlayers"></div>
+</div>
+
+<div class="admin-box">
+<h3>Cadastro de partida</h3>
+<form id="matchForm">
+<input type="hidden" id="matchEditId">
+<div class="form-grid">
+<input id="matchOpponent" placeholder="Adversário / descrição" required>
+<input id="matchDate" type="date">
+<input id="matchLocation" placeholder="Local">
+<select id="matchStatus">
+<option value="Agendado">Agendado</option>
+<option value="Finalizado">Finalizado</option>
+</select>
+<input id="matchOurScore" type="number" min="0" placeholder="Gols Relíquias">
+<input id="matchTheirScore" type="number" min="0" placeholder="Gols adversário">
+</div>
+<div class="form-actions">
+<button class="small-btn gold-btn" type="submit">Salvar partida</button>
+<button class="small-btn" type="button" onclick="clearMatchForm()">Limpar</button>
+</div>
+</form>
+<div class="admin-list" id="adminMatches"></div>
+</div>
+
+<div class="admin-box">
+<h3>Backup dos dados</h3>
+<p class="notice">Exporte uma cópia dos cadastros e partidas para guardar. O backup pode ser importado neste navegador depois.</p>
+<div class="form-actions">
+<button class="small-btn gold-btn" onclick="exportBackup()">Exportar backup JSON</button>
+<label class="small-btn" for="importFile">Importar backup</label>
+<input class="hidden" id="importFile" type="file" accept="application/json" onchange="importBackup(event)">
+</div>
+</div>
+
+<p class="notice">Observação: os dados são armazenados localmente no navegador (localStorage). Para que todos os membros vejam os mesmos dados em aparelhos diferentes, será necessário integrar um banco de dados online.</p>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">
+<strong>ASSOCIAÇÃO RELÍQUIAS</strong><br>
+Futebol, união e respeito • Desde 2026<br>
+© <span id="year"></span> Associação Relíquias. Todos os direitos reservados.
+</div>
+</footer>
+
+<script>
+const STORAGE_KEY='associacaoReliquiasSite_v1';
+let data=loadData();
+
+function loadData(){
+try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{players:[],matches:[]}}
+catch(e){return{players:[],matches:[]}}
+}
+function saveData(){
+localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+renderAll();
+}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function esc(s){
+return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))
+}
+
+function renderAll(){renderStats();renderPlayers();renderRanking();renderMatches();renderAdmin()}
+function renderStats(){
+document.getElementById('statPlayers').textContent=data.players.length;
+document.getElementById('statGoals').textContent=data.players.reduce((a,p)=>a+(+p.goals||0),0);
+document.getElementById('statAssists').textContent=data.players.reduce((a,p)=>a+(+p.assists||0),0);
+document.getElementById('statMatches').textContent=data.matches.length;
+}
+function renderPlayers(){
+const el=document.getElementById('playerGrid');
+if(!data.players.length){el.innerHTML='<div class="empty">Nenhum jogador cadastrado ainda.</div>';return}
+el.innerHTML=data.players.slice().sort((a,b)=>(+a.number||999)-(+b.number||999)).map(p=>`<article class="player-card"><div class="player-number">${esc(p.number||'—')}</div><div><h3>${esc(p.name)}</h3><p>${esc(p.position||'Jogador')}</p></div><div class="player-meta">⚽ ${+p.goals||0}<br>🎯 ${+p.assists||0}</div></article>`).join('')
+}
+function renderRanking(){
+const body=document.getElementById('rankingBody');
+const sorted=data.players.slice().sort((a,b)=>(+b.goals||0)-(+a.goals||0)||(+b.assists||0)-(+a.assists||0));
+if(!sorted.length){body.innerHTML='<tr><td colspan="5" class="empty">Ranking será exibido após os cadastros.</td></tr>';return}
+body.innerHTML=sorted.map((p,i)=>`<tr><td class="rank">${i+1}</td><td>${esc(p.name)}</td><td>${+p.goals||0}</td><td>${+p.assists||0}</td><td><strong>${(+p.goals||0)+(+p.assists||0)}</strong></td></tr>`).join('')
+}
+function renderMatches(){
+const el=document.getElementById('matchList');
+if(!data.matches.length){el.innerHTML='<div class="empty">Nenhuma partida cadastrada.</div>';return}
+const sorted=data.matches.slice().sort((a,b)=>(a.date||'9999').localeCompare(b.date||'9999'));
+el.innerHTML=sorted.map(m=>`<article class="match"><div><strong>${esc(m.opponent)}</strong><div class="match-info">${m.date?new Date(m.date+'T12:00:00').toLocaleDateString('pt-BR'):'Data a definir'}${m.location?' • '+esc(m.location):''}</div></div><div class="match-score">${m.status==='Finalizado'?(m.ourScore??0)+' × '+(m.theirScore??0):'—'}</div><span class="status">${esc(m.status)}</span></article>`).join('')
+}
+function renderAdmin(){
+document.getElementById('adminPlayers').innerHTML=data.players.map(p=>`<div class="admin-item"><span><b>${esc(p.name)}</b> • #${esc(p.number||'—')} • ⚽${+p.goals||0} 🎯${+p.assists||0}</span><div class="actions"><button class="small-btn" onclick="editPlayer('${p.id}')">Editar</button><button class="small-btn delete" onclick="deletePlayer('${p.id}')">Excluir</button></div></div>`).join('')||'<div class="notice">Nenhum jogador cadastrado.</div>';
+document.getElementById('adminMatches').innerHTML=data.matches.map(m=>`<div class="admin-item"><span><b>${esc(m.opponent)}</b> • ${esc(m.date||'Sem data')} • ${esc(m.status)}</span><div class="actions"><button class="small-btn" onclick="editMatch('${m.id}')">Editar</button><button class="small-btn delete" onclick="deleteMatch('${m.id}')">Excluir</button></div></div>`).join('')||'<div class="notice">Nenhuma partida cadastrada.</div>'
+}
+function clearPlayerForm(){
+document.getElementById('playerForm').reset();
+document.getElementById('playerEditId').value='';
+document.getElementById('playerGoals').value=0;
+document.getElementById('playerAssists').value=0;
+}
+document.getElementById('playerForm').addEventListener('submit',e=>{
+e.preventDefault();
+const id=document.getElementById('playerEditId').value;
+const p={id:id||uid(),name:document.getElementById('playerName').value.trim(),number:document.getElementById('playerNumber').value,position:document.getElementById('playerPosition').value.trim(),goals:+document.getElementById('playerGoals').value||0,assists:+document.getElementById('playerAssists').value||0};
+if(id){const i=data.players.findIndex(x=>x.id===id);if(i>=0)data.players[i]=p}else data.players.push(p);
+saveData();
+clearPlayerForm();
+});
+function editPlayer(id){
+const p=data.players.find(x=>x.id===id);if(!p)return;
+document.getElementById('playerEditId').value=p.id;
+document.getElementById('playerName').value=p.name;
+document.getElementById('playerNumber').value=p.number;
+document.getElementById('playerPosition').value=p.position;
+document.getElementById('playerGoals').value=p.goals;
+document.getElementById('playerAssists').value=p.assists;
+document.getElementById('playerForm').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function deletePlayer(id){
+if(confirm('Excluir este jogador?')){data.players=data.players.filter(p=>p.id!==id);saveData()}
+}
+function clearMatchForm(){
+document.getElementById('matchForm').reset();
+document.getElementById('matchEditId').value='';
+}
+document.getElementById('matchForm').addEventListener('submit',e=>{
+e.preventDefault();
+const id=document.getElementById('matchEditId').value;
+const m={id:id||uid(),opponent:document.getElementById('matchOpponent').value.trim(),date:document.getElementById('matchDate').value,location:document.getElementById('matchLocation').value.trim(),status:document.getElementById('matchStatus').value,ourScore:document.getElementById('matchOurScore').value,theirScore:document.getElementById('matchTheirScore').value};
+if(id){const i=data.matches.findIndex(x=>x.id===id);if(i>=0)data.matches[i]=m}else data.matches.push(m);
+saveData();
+clearMatchForm();
+});
+function editMatch(id){
+const m=data.matches.find(x=>x.id===id);if(!m)return;
+document.getElementById('matchEditId').value=m.id;
+document.getElementById('matchOpponent').value=m.opponent;
+document.getElementById('matchDate').value=m.date;
+document.getElementById('matchLocation').value=m.location;
+document.getElementById('matchStatus').value=m.status;
+document.getElementById('matchOurScore').value=m.ourScore;
+document.getElementById('matchTheirScore').value=m.theirScore;
+document.getElementById('matchForm').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function deleteMatch(id){
+if(confirm('Excluir esta partida?')){data.matches=data.matches.filter(m=>m.id!==id);saveData()}
+}
+function exportBackup(){
+const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+const a=document.createElement('a');
+a.href=URL.createObjectURL(blob);
+a.download='backup-associacao-reliquias.json';
+a.click();
+URL.revokeObjectURL(a.href);
+}
+function importBackup(event){
+const file=event.target.files[0];if(!file)return;
+const reader=new FileReader();
+reader.onload=()=>{
+try{
+const imported=JSON.parse(reader.result);
+if(!Array.isArray(imported.players)||!Array.isArray(imported.matches))throw new Error('Formato inválido');
+if(confirm('Importar backup? Isso substituirá os dados atuais.')){data=imported;saveData();alert('Backup importado!')}
+}catch(e){alert('Arquivo inválido. Selecione um backup JSON do site.')}
+event.target.value='';
+};
+reader.readAsText(file);
+}
+function toggleMenu(){document.getElementById('navlinks').classList.toggle('open')}
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+renderAll();
+</script>
+</body>
+</html>
