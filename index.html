@@ -159,34 +159,6 @@ header{
   object-fit:contain;
 }
 
-/* ESTATÍSTICAS */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:13px;
-  margin-top:-25px;
-  position:relative;
-}
-.stat{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:22px 10px;
-  text-align:center;
-}
-.stat strong{
-  display:block;
-  font-size:32px;
-  color:var(--gold);
-  font-weight:900;
-}
-.stat span{
-  color:var(--muted);
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
 /* SOBRE */
 .about-grid{
   display:grid;
@@ -271,29 +243,6 @@ th{
 tbody tr:last-child td{border-bottom:0}
 .rank{color:var(--gold);font-weight:900}
 
-/* PARTIDAS */
-.match-list{display:grid;gap:12px}
-.match{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:16px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-.match-info{font-size:12px;color:var(--muted);line-height:1.7;margin-top:5px}
-.match-score{font-size:22px;color:var(--gold);font-weight:900}
-.match-status{
-  border:1px solid #444;
-  border-radius:30px;
-  padding:5px 9px;
-  font-size:10px;
-  color:#aaa;
-  text-transform:uppercase;
-}
-
 /* PATROCINADORES */
 .sponsors-section{background:#080808}
 .sponsors-triangle{
@@ -325,6 +274,7 @@ tbody tr:last-child td{border-bottom:0}
 }
 .sponsor-top{width:60%;min-height:175px}
 .sponsor-top img{height:140px}
+.sponsors-bottom .sponsor-card:first-child img{transform:scale(1.18)}
 .sponsors-bottom{
   width:100%;
   display:grid;
@@ -332,57 +282,7 @@ tbody tr:last-child td{border-bottom:0}
   gap:20px;
 }
 
-/* ADMIN */
-.admin{background:#101010;border-top:1px solid var(--gold)}
-.admin-box{
-  background:#151515;
-  border:1px solid #303030;
-  border-radius:13px;
-  padding:20px;
-  margin-bottom:18px;
-}
-.admin-box h3{color:var(--gold);margin-top:0}
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-.form-grid input,.form-grid select{
-  width:100%;
-  background:#080808;
-  color:white;
-  border:1px solid #333;
-  padding:12px;
-  border-radius:8px;
-}
-.form-grid input:focus,.form-grid select:focus{outline:1px solid var(--gold)}
-.form-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
-.small-btn{
-  padding:9px 12px;
-  border:1px solid #555;
-  border-radius:7px;
-  background:#222;
-  color:#fff;
-  font-size:12px;
-}
-.gold-btn{background:var(--gold);border-color:var(--gold);color:#080808;font-weight:bold}
-.delete-btn{border-color:#8a3333;color:#ff8585}
-.admin-list{display:grid;gap:8px;margin-top:15px}
-.admin-item{
-  background:#0b0b0b;
-  border:1px solid #292929;
-  border-radius:8px;
-  padding:11px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  font-size:12px;
-}
-.admin-actions{display:flex;gap:5px;flex-wrap:wrap}
-.notice{color:var(--muted);font-size:12px;line-height:1.6}
-.hidden{display:none!important}
-
+/* RODAPÉ */
 footer{
   border-top:1px solid #222;
   padding:28px 0;
@@ -393,12 +293,12 @@ footer{
 }
 footer strong{color:var(--gold)}
 
+/* RESPONSIVIDADE */
 @media(max-width:800px){
   .hero-inner{grid-template-columns:1fr;text-align:center}
   .hero p{margin:auto}
   .hero-logo img{width:220px}
   .hero-actions{justify-content:center}
-  .stats{grid-template-columns:repeat(2,1fr)}
   .about-grid{grid-template-columns:1fr}
   .player-grid{grid-template-columns:1fr 1fr}
   .navlinks{
@@ -423,8 +323,6 @@ footer strong{color:var(--gold)}
   .sponsor-card{min-height:110px;padding:10px}
   .sponsor-card img{height:85px}
   .sponsor-top img{height:115px}
-  .form-grid{grid-template-columns:1fr}
-  .match{flex-wrap:wrap}
 }
 </style>
 </head>
@@ -444,9 +342,7 @@ footer strong{color:var(--gold)}
       <a href="#sobre">Sobre</a>
       <a href="#elenco">Elenco</a>
       <a href="#ranking">Artilharia</a>
-      <a href="#jogos">Jogos</a>
       <a href="#patrocinadores">Patrocinadores</a>
-      <a href="#administracao">Administração</a>
     </nav>
   </div>
 </header>
@@ -462,7 +358,6 @@ footer strong{color:var(--gold)}
       <p>Mais que futebol, somos união, compromisso e amizade. Bem-vindo à Associação Relíquias, onde cada jogo fortalece nossa história.</p>
       <div class="hero-actions">
         <a href="#elenco" class="btn btn-primary">CONHEÇA O ELENCO</a>
-        <a href="#jogos" class="btn btn-outline">VER JOGOS</a>
       </div>
     </div>
     <div class="hero-logo">
@@ -470,16 +365,6 @@ footer strong{color:var(--gold)}
     </div>
   </div>
 </section>
-
-<!-- ESTATÍSTICAS -->
-<div class="container">
-  <div class="stats">
-    <div class="stat"><strong id="statPlayers">0</strong><span>Jogadores</span></div>
-    <div class="stat"><strong id="statGoals">0</strong><span>Gols</span></div>
-    <div class="stat"><strong id="statAssists">0</strong><span>Assistências</span></div>
-    <div class="stat"><strong id="statMatches">0</strong><span>Partidas</span></div>
-  </div>
-</div>
 
 <!-- SOBRE -->
 <section class="section" id="sobre">
@@ -515,40 +400,177 @@ footer strong{color:var(--gold)}
     <div class="section-title">
       <small>NOSSO GRUPO</small>
       <h2>ELENCO <span class="gold">RELÍQUIAS</span></h2>
-      <p>Confira os jogadores cadastrados na associação.</p>
+      <p>Conheça os atletas da Associação Relíquias.</p>
     </div>
-    <div class="player-grid" id="playerGrid"></div>
+
+    <div class="player-grid">
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Mário</h3><p>Jogador</p></div>
+        <div class="player-meta">11 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Alexandre</h3><p>Jogador</p></div>
+        <div class="player-meta">7 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Júnior</h3><p>Jogador</p></div>
+        <div class="player-meta">4 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Ruan</h3><p>Jogador</p></div>
+        <div class="player-meta">4 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Matheus</h3><p>Jogador</p></div>
+        <div class="player-meta">3 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Jefferson</h3><p>Jogador</p></div>
+        <div class="player-meta">3 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Léo</h3><p>Jogador</p></div>
+        <div class="player-meta">2 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Wallace</h3><p>Jogador</p></div>
+        <div class="player-meta">2 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Jhon</h3><p>Jogador</p></div>
+        <div class="player-meta">2 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Alisson</h3><p>Jogador</p></div>
+        <div class="player-meta">2 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Thiago</h3><p>Jogador</p></div>
+        <div class="player-meta">2 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Gabriel</h3><p>Jogador</p></div>
+        <div class="player-meta">1 gol</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Saskuat</h3><p>Jogador</p></div>
+        <div class="player-meta">1 gol</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Laison</h3><p>Jogador</p></div>
+        <div class="player-meta">1 gol</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Joabe</h3><p>Jogador</p></div>
+        <div class="player-meta">1 gol</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Yan</h3><p>Jogador</p></div>
+        <div class="player-meta">0 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Gean</h3><p>Jogador</p></div>
+        <div class="player-meta">0 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Neto</h3><p>Jogador</p></div>
+        <div class="player-meta">0 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Atos</h3><p>Jogador</p></div>
+        <div class="player-meta">0 gols</div>
+      </article>
+
+      <article class="player-card">
+        <div class="player-number">⚽</div>
+        <div><h3>Vinicius</h3><p>Jogador</p></div>
+        <div class="player-meta">0 gols</div>
+      </article>
+
+    </div>
   </div>
 </section>
 
-<!-- RANKING -->
+<!-- ARTILHARIA -->
 <section class="section" id="ranking">
   <div class="container">
     <div class="section-title">
       <small>DESEMPENHO</small>
-      <h2>RANKING DE <span class="gold">ARTILHARIA</span></h2>
-      <p>Gols e assistências registrados.</p>
+      <h2>ARTILHARIA <span class="gold">RELÍQUIAS</span></h2>
+      <p>Artilharia oficial da Associação Relíquias.</p>
     </div>
+
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>#</th><th>Jogador</th><th>Gols</th><th>Assistências</th><th>G+A</th></tr>
+          <tr>
+            <th>Pos.</th>
+            <th>Jogador</th>
+            <th>Gols</th>
+          </tr>
         </thead>
-        <tbody id="rankingBody"></tbody>
+        <tbody>
+          <tr><td class="rank">1º</td><td>Mário</td><td>11</td></tr>
+          <tr><td class="rank">2º</td><td>Alexandre</td><td>7</td></tr>
+          <tr><td class="rank">3º</td><td>Júnior</td><td>4</td></tr>
+          <tr><td class="rank">4º</td><td>Ruan</td><td>4</td></tr>
+          <tr><td class="rank">5º</td><td>Matheus</td><td>3</td></tr>
+          <tr><td class="rank">6º</td><td>Jefferson</td><td>3</td></tr>
+          <tr><td class="rank">7º</td><td>Léo</td><td>2</td></tr>
+          <tr><td class="rank">8º</td><td>Wallace</td><td>2</td></tr>
+          <tr><td class="rank">9º</td><td>Jhon</td><td>2</td></tr>
+          <tr><td class="rank">10º</td><td>Alisson</td><td>2</td></tr>
+          <tr><td class="rank">11º</td><td>Thiago</td><td>2</td></tr>
+          <tr><td class="rank">12º</td><td>Gabriel</td><td>1</td></tr>
+          <tr><td class="rank">13º</td><td>Saskuat</td><td>1</td></tr>
+          <tr><td class="rank">14º</td><td>Laison</td><td>1</td></tr>
+          <tr><td class="rank">15º</td><td>Joabe</td><td>1</td></tr>
+          <tr><td class="rank">16º</td><td>Yan</td><td>0</td></tr>
+          <tr><td class="rank">19º</td><td>Gean</td><td>0</td></tr>
+          <tr><td class="rank">18º</td><td>Neto</td><td>0</td></tr>
+          <tr><td class="rank">17º</td><td>Atos</td><td>0</td></tr>
+          <tr><td class="rank">20º</td><td>Vinicius</td><td>0</td></tr>
+        </tbody>
       </table>
     </div>
-  </div>
-</section>
-
-<!-- JOGOS -->
-<section class="section alt" id="jogos">
-  <div class="container">
-    <div class="section-title">
-      <small>CALENDÁRIO E RESULTADOS</small>
-      <h2>JOGOS <span class="gold">DA ASSOCIAÇÃO</span></h2>
-      <p>Agenda, confrontos e resultados registrados.</p>
-    </div>
-    <div class="match-list" id="matchList"></div>
   </div>
 </section>
 
@@ -578,74 +600,6 @@ footer strong{color:var(--gold)}
   </div>
 </section>
 
-<!-- ADMINISTRAÇÃO -->
-<section class="section admin" id="administracao">
-  <div class="container">
-    <div class="section-title">
-      <small>CONTROLE DO SITE</small>
-      <h2>ÁREA <span class="gold">ADMINISTRATIVA</span></h2>
-      <p>Cadastre atletas e jogos. Os dados ficam salvos neste navegador.</p>
-    </div>
-
-    <!-- JOGADORES -->
-    <div class="admin-box">
-      <h3>Cadastro de jogador</h3>
-      <form id="playerForm">
-        <input type="hidden" id="playerEditId">
-        <div class="form-grid">
-          <input id="playerName" placeholder="Nome do jogador" required>
-          <input id="playerNumber" type="number" min="0" placeholder="Número da camisa">
-          <input id="playerPosition" placeholder="Posição">
-          <input id="playerGoals" type="number" min="0" value="0" placeholder="Gols">
-          <input id="playerAssists" type="number" min="0" value="0" placeholder="Assistências">
-        </div>
-        <div class="form-actions">
-          <button class="small-btn gold-btn" type="submit">Salvar jogador</button>
-          <button class="small-btn" type="button" onclick="clearPlayerForm()">Limpar</button>
-        </div>
-      </form>
-      <div class="admin-list" id="adminPlayers"></div>
-    </div>
-
-    <!-- PARTIDAS -->
-    <div class="admin-box">
-      <h3>Cadastro de partida</h3>
-      <form id="matchForm">
-        <input type="hidden" id="matchEditId">
-        <div class="form-grid">
-          <input id="matchOpponent" placeholder="Adversário" required>
-          <input id="matchDate" type="date">
-          <input id="matchLocation" placeholder="Local">
-          <select id="matchStatus">
-            <option value="Agendado">Agendado</option>
-            <option value="Finalizado">Finalizado</option>
-          </select>
-          <input id="matchOurScore" type="number" min="0" placeholder="Gols Relíquias">
-          <input id="matchTheirScore" type="number" min="0" placeholder="Gols adversário">
-        </div>
-        <div class="form-actions">
-          <button class="small-btn gold-btn" type="submit">Salvar partida</button>
-          <button class="small-btn" type="button" onclick="clearMatchForm()">Limpar</button>
-        </div>
-      </form>
-      <div class="admin-list" id="adminMatches"></div>
-    </div>
-
-    <!-- BACKUP -->
-    <div class="admin-box">
-      <h3>Backup dos dados</h3>
-      <p class="notice">Exporte os cadastros e partidas para guardar uma cópia de segurança.</p>
-      <div class="form-actions">
-        <button class="small-btn gold-btn" onclick="exportBackup()">Exportar backup</button>
-        <label class="small-btn" for="importFile">Importar backup</label>
-        <input class="hidden" id="importFile" type="file" accept=".json,application/json" onchange="importBackup(event)">
-      </div>
-    </div>
-
-    <p class="notice">Os cadastros ficam salvos localmente neste navegador. Para compartilhar os dados entre todos os associados e aparelhos, será necessário integrar um banco de dados online.</p>
-  </div>
-</section>
-
 </main>
 
 <footer>
@@ -657,250 +611,10 @@ footer strong{color:var(--gold)}
 </footer>
 
 <script>
-const STORAGE_KEY="reliquias_site_v1";
-let data=loadData();
-
-function loadData(){
-  try{
-    const saved=localStorage.getItem(STORAGE_KEY);
-    return saved?JSON.parse(saved):{players:[],matches:[]};
-  }catch(e){
-    return {players:[],matches:[]};
-  }
-}
-function saveData(){
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
-  renderAll();
-}
-function uid(){
-  return Date.now().toString(36)+Math.random().toString(36).slice(2,7);
-}
-function esc(value){
-  return String(value??"").replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[c]));
-}
-function renderAll(){
-  renderStats();
-  renderPlayers();
-  renderRanking();
-  renderMatches();
-  renderAdmin();
-}
-function renderStats(){
-  document.getElementById("statPlayers").textContent=data.players.length;
-  document.getElementById("statGoals").textContent=data.players.reduce((a,p)=>a+(Number(p.goals)||0),0);
-  document.getElementById("statAssists").textContent=data.players.reduce((a,p)=>a+(Number(p.assists)||0),0);
-  document.getElementById("statMatches").textContent=data.matches.length;
-}
-function renderPlayers(){
-  const el=document.getElementById("playerGrid");
-  if(!data.players.length){
-    el.innerHTML='<div class="empty">Nenhum jogador cadastrado ainda.</div>';
-    return;
-  }
-  const sorted=data.players.slice().sort((a,b)=>(Number(a.number)||999)-(Number(b.number)||999));
-  el.innerHTML=sorted.map(p=>`
-    <article class="player-card">
-      <div class="player-number">${esc(p.number||"—")}</div>
-      <div>
-        <h3>${esc(p.name)}</h3>
-        <p>${esc(p.position||"Jogador")}</p>
-      </div>
-      <div class="player-meta">⚽ ${Number(p.goals)||0}<br>🎯 ${Number(p.assists)||0}</div>
-    </article>
-  `).join("");
-}
-function renderRanking(){
-  const body=document.getElementById("rankingBody");
-  const sorted=data.players.slice().sort((a,b)=>
-    (Number(b.goals)||0)-(Number(a.goals)||0)||
-    (Number(b.assists)||0)-(Number(a.assists)||0)
-  );
-  if(!sorted.length){
-    body.innerHTML='<tr><td colspan="5">Ranking será exibido após os cadastros.</td></tr>';
-    return;
-  }
-  body.innerHTML=sorted.map((p,i)=>`
-    <tr>
-      <td class="rank">${i+1}</td>
-      <td>${esc(p.name)}</td>
-      <td>${Number(p.goals)||0}</td>
-      <td>${Number(p.assists)||0}</td>
-      <td><strong>${(Number(p.goals)||0)+(Number(p.assists)||0)}</strong></td>
-    </tr>
-  `).join("");
-}
-function renderMatches(){
-  const el=document.getElementById("matchList");
-  if(!data.matches.length){
-    el.innerHTML='<div class="empty">Nenhuma partida cadastrada.</div>';
-    return;
-  }
-  const sorted=data.matches.slice().sort((a,b)=>(a.date||"9999").localeCompare(b.date||"9999"));
-  el.innerHTML=sorted.map(m=>`
-    <article class="match">
-      <div>
-        <strong>${esc(m.opponent)}</strong>
-        <div class="match-info">
-          ${m.date?new Date(m.date+"T12:00:00").toLocaleDateString("pt-BR"):"Data a definir"}
-          ${m.location?" • "+esc(m.location):""}
-        </div>
-      </div>
-      <div class="match-score">${m.status==="Finalizado"?(m.ourScore??0)+" × "+(m.theirScore??0):"—"}</div>
-      <span class="match-status">${esc(m.status)}</span>
-    </article>
-  `).join("");
-}
-function renderAdmin(){
-  const players=document.getElementById("adminPlayers");
-  players.innerHTML=data.players.map(p=>`
-    <div class="admin-item">
-      <span><b>${esc(p.name)}</b> • #${esc(p.number||"—")} • ⚽${Number(p.goals)||0} 🎯${Number(p.assists)||0}</span>
-      <div class="admin-actions">
-        <button class="small-btn" onclick="editPlayer('${p.id}')">Editar</button>
-        <button class="small-btn delete-btn" onclick="deletePlayer('${p.id}')">Excluir</button>
-      </div>
-    </div>
-  `).join("")||'<p class="notice">Nenhum jogador cadastrado.</p>';
-
-  const matches=document.getElementById("adminMatches");
-  matches.innerHTML=data.matches.map(m=>`
-    <div class="admin-item">
-      <span><b>${esc(m.opponent)}</b> • ${esc(m.date||"Sem data")} • ${esc(m.status)}</span>
-      <div class="admin-actions">
-        <button class="small-btn" onclick="editMatch('${m.id}')">Editar</button>
-        <button class="small-btn delete-btn" onclick="deleteMatch('${m.id}')">Excluir</button>
-      </div>
-    </div>
-  `).join("")||'<p class="notice">Nenhuma partida cadastrada.</p>';
-}
-
-/* JOGADORES */
-function clearPlayerForm(){
-  document.getElementById("playerForm").reset();
-  document.getElementById("playerEditId").value="";
-  document.getElementById("playerGoals").value=0;
-  document.getElementById("playerAssists").value=0;
-}
-document.getElementById("playerForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const id=document.getElementById("playerEditId").value;
-  const player={
-    id:id||uid(),
-    name:document.getElementById("playerName").value.trim(),
-    number:document.getElementById("playerNumber").value,
-    position:document.getElementById("playerPosition").value.trim(),
-    goals:Number(document.getElementById("playerGoals").value)||0,
-    assists:Number(document.getElementById("playerAssists").value)||0
-  };
-  if(id){
-    const index=data.players.findIndex(p=>p.id===id);
-    if(index>=0)data.players[index]=player;
-  }else{
-    data.players.push(player);
-  }
-  saveData();
-  clearPlayerForm();
-});
-function editPlayer(id){
-  const p=data.players.find(x=>x.id===id);
-  if(!p)return;
-  document.getElementById("playerEditId").value=p.id;
-  document.getElementById("playerName").value=p.name;
-  document.getElementById("playerNumber").value=p.number;
-  document.getElementById("playerPosition").value=p.position;
-  document.getElementById("playerGoals").value=p.goals;
-  document.getElementById("playerAssists").value=p.assists;
-  document.getElementById("playerForm").scrollIntoView({behavior:"smooth"});
-}
-function deletePlayer(id){
-  if(confirm("Deseja excluir este jogador?")){
-    data.players=data.players.filter(p=>p.id!==id);
-    saveData();
-  }
-}
-
-/* PARTIDAS */
-function clearMatchForm(){
-  document.getElementById("matchForm").reset();
-  document.getElementById("matchEditId").value="";
-}
-document.getElementById("matchForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const id=document.getElementById("matchEditId").value;
-  const match={
-    id:id||uid(),
-    opponent:document.getElementById("matchOpponent").value.trim(),
-    date:document.getElementById("matchDate").value,
-    location:document.getElementById("matchLocation").value.trim(),
-    status:document.getElementById("matchStatus").value,
-    ourScore:document.getElementById("matchOurScore").value,
-    theirScore:document.getElementById("matchTheirScore").value
-  };
-  if(id){
-    const index=data.matches.findIndex(m=>m.id===id);
-    if(index>=0)data.matches[index]=match;
-  }else{
-    data.matches.push(match);
-  }
-  saveData();
-  clearMatchForm();
-});
-function editMatch(id){
-  const m=data.matches.find(x=>x.id===id);
-  if(!m)return;
-  document.getElementById("matchEditId").value=m.id;
-  document.getElementById("matchOpponent").value=m.opponent;
-  document.getElementById("matchDate").value=m.date;
-  document.getElementById("matchLocation").value=m.location;
-  document.getElementById("matchStatus").value=m.status;
-  document.getElementById("matchOurScore").value=m.ourScore;
-  document.getElementById("matchTheirScore").value=m.theirScore;
-  document.getElementById("matchForm").scrollIntoView({behavior:"smooth"});
-}
-function deleteMatch(id){
-  if(confirm("Deseja excluir esta partida?")){
-    data.matches=data.matches.filter(m=>m.id!==id);
-    saveData();
-  }
-}
-
-/* BACKUP */
-function exportBackup(){
-  const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement("a");
-  a.href=url;
-  a.download="backup-associacao-reliquias.json";
-  a.click();
-  URL.revokeObjectURL(url);
-}
-function importBackup(event){
-  const file=event.target.files[0];
-  if(!file)return;
-  const reader=new FileReader();
-  reader.onload=()=>{
-    try{
-      const imported=JSON.parse(reader.result);
-      if(!Array.isArray(imported.players)||!Array.isArray(imported.matches))throw new Error();
-      if(confirm("Importar backup? Os dados atuais serão substituídos.")){
-        data=imported;
-        saveData();
-        alert("Backup importado com sucesso!");
-      }
-    }catch(e){
-      alert("Arquivo inválido. Selecione um backup JSON do site.");
-    }
-    event.target.value="";
-  };
-  reader.readAsText(file);
-}
-
-/* MENU */
 function toggleMenu(){
   document.getElementById("navlinks").classList.toggle("open");
 }
+
 document.querySelectorAll(".navlinks a").forEach(a=>{
   a.addEventListener("click",()=>{
     document.getElementById("navlinks").classList.remove("open");
@@ -908,7 +622,7 @@ document.querySelectorAll(".navlinks a").forEach(a=>{
 });
 
 document.getElementById("year").textContent=new Date().getFullYear();
-renderAll();
 </script>
+
 </body>
 </html>
