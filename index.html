@@ -99,7 +99,7 @@ header{
   padding:8px 12px;
 }
 
-/* INICIO */
+/* INÍCIO */
 .hero{
   min-height:520px;
   display:flex;
@@ -159,23 +159,7 @@ header{
   object-fit:contain;
 }
 
-/* SOBRE */
-.about-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-}
-.about-card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:22px;
-}
-.about-card .icon{font-size:26px;margin-bottom:12px}
-.about-card h3{margin:0 0 10px}
-.about-card p{color:var(--muted);font-size:13px;line-height:1.7}
-
-/* JOGADORES */
+/* ELENCO */
 .player-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -188,28 +172,31 @@ header{
   padding:16px;
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:14px;
+  min-height:104px;
 }
-.player-number{
-  min-width:48px;
-  height:48px;
+.player-photo{
+  width:72px;
+  height:72px;
+  flex:0 0 72px;
   display:grid;
   place-items:center;
-  background:#25200f;
-  border:1px solid var(--gold);
-  color:var(--gold);
+  overflow:hidden;
+  background:#202020;
+  border:1px dashed var(--gold);
   border-radius:10px;
-  font-weight:900;
-  font-size:20px;
-}
-.player-card h3{margin:0 0 5px;font-size:14px}
-.player-card p{margin:0;color:var(--muted);font-size:12px}
-.player-meta{
-  margin-left:auto;
   color:var(--gold);
+  font-size:28px;
+}
+.player-card h3{
+  margin:0 0 6px;
+  font-size:15px;
+  font-weight:800;
+}
+.player-position{
+  margin:0;
+  color:var(--muted);
   font-size:12px;
-  text-align:right;
-  line-height:1.6;
 }
 .empty{
   color:var(--muted);
@@ -220,14 +207,18 @@ header{
   grid-column:1/-1;
 }
 
-/* RANKING */
+/* ARTILHARIA */
 .table-wrap{
   overflow-x:auto;
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:12px;
 }
-table{border-collapse:collapse;width:100%;min-width:480px}
+table{
+  border-collapse:collapse;
+  width:100%;
+  min-width:480px;
+}
 th,td{
   padding:14px;
   border-bottom:1px solid var(--line);
@@ -272,9 +263,16 @@ tbody tr:last-child td{border-bottom:0}
   height:115px;
   object-fit:contain;
 }
-.sponsor-top{width:60%;min-height:175px}
+.sponsor-top{
+  width:60%;
+  min-height:175px;
+}
 .sponsor-top img{height:140px}
-.sponsors-bottom .sponsor-card:first-child img{transform:scale(1.18)}
+
+/* PEÇAS & CIA. AMPLIADA */
+.sponsors-bottom .sponsor-card:first-child img{
+  transform:scale(1.38);
+}
 .sponsors-bottom{
   width:100%;
   display:grid;
@@ -295,12 +293,16 @@ footer strong{color:var(--gold)}
 
 /* RESPONSIVIDADE */
 @media(max-width:800px){
-  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-inner{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
   .hero p{margin:auto}
   .hero-logo img{width:220px}
   .hero-actions{justify-content:center}
   .about-grid{grid-template-columns:1fr}
   .player-grid{grid-template-columns:1fr 1fr}
+
   .navlinks{
     display:none;
     position:absolute;
@@ -315,12 +317,19 @@ footer strong{color:var(--gold)}
   .navlinks.open{display:flex}
   .menu-btn{display:block}
 }
+
 @media(max-width:520px){
   .section{padding:52px 0}
   .player-grid{grid-template-columns:1fr}
-  .sponsor-top{width:78%;min-height:140px}
+  .sponsor-top{
+    width:78%;
+    min-height:140px;
+  }
   .sponsors-bottom{gap:12px}
-  .sponsor-card{min-height:110px;padding:10px}
+  .sponsor-card{
+    min-height:110px;
+    padding:10px;
+  }
   .sponsor-card img{height:85px}
   .sponsor-top img{height:115px}
 }
@@ -333,7 +342,10 @@ footer strong{color:var(--gold)}
   <div class="container nav">
     <a href="#inicio" class="brand">
       <img src="logo.PNG" alt="Logo Relíquias">
-      <span>ASSOCIAÇÃO<small>RELÍQUIAS • DESDE 2026</small></span>
+      <span>
+        ASSOCIAÇÃO
+        <small>RELÍQUIAS • DESDE 2026</small>
+      </span>
     </a>
 
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
@@ -352,44 +364,80 @@ footer strong{color:var(--gold)}
 <!-- INÍCIO -->
 <section class="hero" id="inicio">
   <div class="container hero-inner">
+
     <div>
-      <div class="hero-label">FUTEBOL • UNIÃO • RESPEITO</div>
-      <h1>UMA HISTÓRIA.<br><span>UMA ASSOCIAÇÃO.</span></h1>
-      <p>Mais que futebol, somos união, compromisso e amizade. Bem-vindo à Associação Relíquias, onde cada jogo fortalece nossa história.</p>
+      <div class="hero-label">
+        FUTEBOL • UNIÃO • RESPEITO
+      </div>
+
+      <h1>
+        UMA HISTÓRIA.<br>
+        <span>UMA ASSOCIAÇÃO.</span>
+      </h1>
+
+      <p>
+        Mais que futebol, somos união, compromisso e amizade.
+        Bem-vindo à Associação Relíquias, onde cada jogo
+        fortalece nossa história.
+      </p>
+
       <div class="hero-actions">
-        <a href="#elenco" class="btn btn-primary">CONHEÇA O ELENCO</a>
+        <a href="#elenco" class="btn btn-primary">
+          CONHEÇA O ELENCO
+        </a>
       </div>
     </div>
+
     <div class="hero-logo">
       <img src="logo.PNG" alt="Escudo Associação Relíquias">
     </div>
+
   </div>
 </section>
 
 <!-- SOBRE -->
 <section class="section" id="sobre">
   <div class="container">
+
     <div class="section-title">
       <small>NOSSA IDENTIDADE</small>
       <h2>MAIS QUE UM <span class="gold">TIME</span></h2>
-      <p>A Associação Relíquias nasceu para unir pessoas através do futebol, valorizando amizade, respeito, organização e espírito esportivo.</p>
+      <p>
+        A Associação Relíquias nasceu para unir pessoas
+        através do futebol, valorizando amizade, respeito,
+        organização e espírito esportivo.
+      </p>
     </div>
+
     <div class="about-grid">
+
       <article class="about-card">
         <div class="icon">⚽</div>
         <h3>Paixão pelo futebol</h3>
-        <p>O esporte como ponto de encontro, diversão e competição saudável.</p>
+        <p>
+          O esporte como ponto de encontro, diversão
+          e competição saudável.
+        </p>
       </article>
+
       <article class="about-card">
         <div class="icon">🤝</div>
         <h3>União e respeito</h3>
-        <p>Fortalecemos a parceria dentro e fora de campo, respeitando todos.</p>
+        <p>
+          Fortalecemos a parceria dentro e fora de campo,
+          respeitando todos.
+        </p>
       </article>
+
       <article class="about-card">
         <div class="icon">🏆</div>
         <h3>Compromisso</h3>
-        <p>Organização, participação e dedicação para construir nossa história.</p>
+        <p>
+          Organização, participação e dedicação
+          para construir nossa história.
+        </p>
       </article>
+
     </div>
   </div>
 </section>
@@ -397,6 +445,7 @@ footer strong{color:var(--gold)}
 <!-- ELENCO -->
 <section class="section alt" id="elenco">
   <div class="container">
+
     <div class="section-title">
       <small>NOSSO GRUPO</small>
       <h2>ELENCO <span class="gold">RELÍQUIAS</span></h2>
@@ -406,123 +455,163 @@ footer strong{color:var(--gold)}
     <div class="player-grid">
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Mário</h3><p>Jogador</p></div>
-        <div class="player-meta">11 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Mário">📷</div>
+        <div>
+          <h3>Mário</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Alexandre</h3><p>Jogador</p></div>
-        <div class="player-meta">7 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Alexandre">📷</div>
+        <div>
+          <h3>Alexandre</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Júnior</h3><p>Jogador</p></div>
-        <div class="player-meta">4 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Júnior">📷</div>
+        <div>
+          <h3>Júnior</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Ruan</h3><p>Jogador</p></div>
-        <div class="player-meta">4 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Ruan">📷</div>
+        <div>
+          <h3>Ruan</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Matheus</h3><p>Jogador</p></div>
-        <div class="player-meta">3 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Matheus">📷</div>
+        <div>
+          <h3>Matheus</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Jefferson</h3><p>Jogador</p></div>
-        <div class="player-meta">3 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Jefferson">📷</div>
+        <div>
+          <h3>Jefferson</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Léo</h3><p>Jogador</p></div>
-        <div class="player-meta">2 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Léo">📷</div>
+        <div>
+          <h3>Léo</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Wallace</h3><p>Jogador</p></div>
-        <div class="player-meta">2 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Wallace">📷</div>
+        <div>
+          <h3>Wallace</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Jhon</h3><p>Jogador</p></div>
-        <div class="player-meta">2 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Jhon">📷</div>
+        <div>
+          <h3>Jhon</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Alisson</h3><p>Jogador</p></div>
-        <div class="player-meta">2 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Alisson">📷</div>
+        <div>
+          <h3>Alisson</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Thiago</h3><p>Jogador</p></div>
-        <div class="player-meta">2 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Thiago">📷</div>
+        <div>
+          <h3>Thiago</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Gabriel</h3><p>Jogador</p></div>
-        <div class="player-meta">1 gol</div>
+        <div class="player-photo" aria-label="Espaço para foto de Gabriel">📷</div>
+        <div>
+          <h3>Gabriel</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Saskuat</h3><p>Jogador</p></div>
-        <div class="player-meta">1 gol</div>
+        <div class="player-photo" aria-label="Espaço para foto de Saskuat">📷</div>
+        <div>
+          <h3>Saskuat</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Laison</h3><p>Jogador</p></div>
-        <div class="player-meta">1 gol</div>
+        <div class="player-photo" aria-label="Espaço para foto de Laison">📷</div>
+        <div>
+          <h3>Laison</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Joabe</h3><p>Jogador</p></div>
-        <div class="player-meta">1 gol</div>
+        <div class="player-photo" aria-label="Espaço para foto de Joabe">📷</div>
+        <div>
+          <h3>Joabe</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Yan</h3><p>Jogador</p></div>
-        <div class="player-meta">0 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Yan">📷</div>
+        <div>
+          <h3>Yan</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Gean</h3><p>Jogador</p></div>
-        <div class="player-meta">0 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Gean">📷</div>
+        <div>
+          <h3>Gean</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Neto</h3><p>Jogador</p></div>
-        <div class="player-meta">0 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Neto">📷</div>
+        <div>
+          <h3>Neto</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Atos</h3><p>Jogador</p></div>
-        <div class="player-meta">0 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Atos">📷</div>
+        <div>
+          <h3>Atos</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
       <article class="player-card">
-        <div class="player-number">⚽</div>
-        <div><h3>Vinicius</h3><p>Jogador</p></div>
-        <div class="player-meta">0 gols</div>
+        <div class="player-photo" aria-label="Espaço para foto de Vinicius">📷</div>
+        <div>
+          <h3>Vinicius</h3>
+          <p class="player-position">Posição: __________</p>
+        </div>
       </article>
 
     </div>
@@ -532,6 +621,7 @@ footer strong{color:var(--gold)}
 <!-- ARTILHARIA -->
 <section class="section" id="ranking">
   <div class="container">
+
     <div class="section-title">
       <small>DESEMPENHO</small>
       <h2>ARTILHARIA <span class="gold">RELÍQUIAS</span></h2>
@@ -540,6 +630,7 @@ footer strong{color:var(--gold)}
 
     <div class="table-wrap">
       <table>
+
         <thead>
           <tr>
             <th>Pos.</th>
@@ -547,6 +638,7 @@ footer strong{color:var(--gold)}
             <th>Gols</th>
           </tr>
         </thead>
+
         <tbody>
           <tr><td class="rank">1º</td><td>Mário</td><td>11</td></tr>
           <tr><td class="rank">2º</td><td>Alexandre</td><td>7</td></tr>
@@ -569,6 +661,7 @@ footer strong{color:var(--gold)}
           <tr><td class="rank">17º</td><td>Atos</td><td>0</td></tr>
           <tr><td class="rank">20º</td><td>Vinicius</td><td>0</td></tr>
         </tbody>
+
       </table>
     </div>
   </div>
@@ -577,24 +670,32 @@ footer strong{color:var(--gold)}
 <!-- PATROCINADORES -->
 <section class="section sponsors-section" id="patrocinadores">
   <div class="container">
+
     <div class="section-title">
       <small>PARCEIROS OFICIAIS</small>
       <h2>NOSSOS <span class="gold">PATROCINADORES</span></h2>
-      <p>Empresas que fortalecem o esporte e caminham com a Associação Relíquias.</p>
+      <p>
+        Empresas que fortalecem o esporte e caminham
+        com a Associação Relíquias.
+      </p>
     </div>
 
     <div class="sponsors-triangle">
+
       <div class="sponsor-card sponsor-top">
         <img src="revalle.PNG" alt="Revalle">
       </div>
 
       <div class="sponsors-bottom">
+
         <div class="sponsor-card">
           <img src="pecas-e-cia.jpeg.PNG" alt="Peças e Cia.">
         </div>
+
         <div class="sponsor-card">
           <img src="LF-barbearia.jpg" alt="LF Barbearia">
         </div>
+
       </div>
     </div>
   </div>
